@@ -24,3 +24,19 @@ A Flutter project using Clean Arch, SOLID base.
     <td><img src="https://user-images.githubusercontent.com/50106326/153747997-f3e654e6-b6e6-4f44-8e7e-fc8308395777.png" width=270 height=480></td>
   </tr>  
  </table>
+
+# How to use
+
+Ordem de instalação
+
+    # Clone this repository
+    $ git clone https://github.com/Appii00/Flutter-Bloc-Marvel-App
+
+    # Go into the repository
+    $ cd Flutter-Bloc-Marvel-App
+
+    # Install dependencies
+    $ flutter packages get
+
+    # Run the app
+    $ flutter run
