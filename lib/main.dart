@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/pages/home_page.dart';
+import 'package:movie_app/features/movie/presentation/ui/pages/home_page.dart';
+
+import 'core/inject/inject.dart';
 
 void main() {
+  Inject.initialize();
   runApp(const MyApp());
 }
 

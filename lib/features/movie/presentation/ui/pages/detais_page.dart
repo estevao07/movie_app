@@ -1,9 +1,10 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_app/model/movies_model.dart';
-import 'package:movie_app/utils/apis_utils.dart';
+import 'package:movie_app/core/utils/apis_utils.dart';
+import 'package:movie_app/features/movie/domain/entities/movie_details_entity.dart';
 
 class DetailsPage extends StatelessWidget {
-  final Movie movie;
+  final MovieDetailsEntity movie;
   const DetailsPage({Key? key, required this.movie}) : super(key: key);
 
   @override
@@ -16,19 +17,14 @@ class DetailsPage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(24.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
                 height: MediaQuery.of(context).size.height * .55,
-                width: double.infinity,
+                width: MediaQuery.of(context).size.width,
                 child: Hero(
                   tag: movie.id,
-                  child: Image.network(
-                    API.requestImg(movie.posterPath),
-                    loadingBuilder: (_, child, progress) {
-                      if (progress == null) return child;
-                      return const CircularProgressIndicator.adaptive();
-                    },
+                  child: CachedNetworkImage(
+                    imageUrl: API.requestImg(movie.posterPath),
                   ),
                 ),
               ),
@@ -39,16 +35,18 @@ class DetailsPage extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Icon(Icons.title),
+                  Icon(Icons.title),
                   Text(movie.originalTitle),
                 ],
               ),
               const SizedBox(height: 8),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Icon(Icons.new_releases),
-                  Text(movie.releaseDate.toString()),
+                  Icon(Icons.new_releases),
+                  Text(movie.releaseDate),
                 ],
               ),
             ],
