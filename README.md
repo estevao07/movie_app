@@ -27,7 +27,7 @@ A Flutter project using Clean Arch, SOLID base.
 
 # How to use
 
-Ordem de instalação
+To clone and run this application, you'll need Git and Flutter installed on your computer. From your command line:
 
     # Clone this repository
     $ git clone https://github.com/Appii00/Flutter-Bloc-Marvel-App
